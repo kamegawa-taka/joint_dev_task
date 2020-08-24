@@ -53,9 +53,6 @@ def q5
     p array2.empty?
 end
 
-#######################################
-####ここから############################
-#######################################
 
 def q6
   numbers1 = [1, 2, 3, 4, 5]
@@ -81,73 +78,118 @@ def q7
   p array
 end
 
+#######################################
+####ここから############################
+#######################################
 
 def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-  programming_languages = programming_languages.map{|p| p.capitalize}
-  upper_case_programming_languages = programming_languages.map{|p| p.upcase}
+  #programming_languages = programming_languages.map{|p| p.capitalize}
+  #upper_case_programming_languages = programming_languages.map{|p| p.upcase}
+  programming_languages.map!(&:capitalize)
+  upper_case_programming_languages = programming_languages.map(&:upcase)
+
   # 以下は変更しないで下さい
   p programming_languages
   p upper_case_programming_languages
 end
-
-#######################################
-####ここまで############################
-#######################################
 
 
 def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-
+  names.each_with_index{|name, index|
+    puts "会員No.#{index+1} #{name}さん"
+  }
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
-
+    if foods.include?("うに")
+      p "好物です"
+    else
+      p "まあまあ好きです"
+    end
 end
+
 
 def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
+  sports_total = sports.flatten
+    sports_total.uniq!
+    p "ユーザーの趣味一覧"
+    n = 1
+      sports_total.each do |sport|
+        p "No#{n} #{sport}"
+        n += 1
+      end
 
-end
+  end
+
 
 def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
-
+  p data.dig(:user,:name)
 end
+
 
 def q13
   user_data = { name: "神里", age: 31, address: "埼玉" }
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
+    update_data.each{|key,value|
+      user_data.store(key, value)
+  }
+
+  p user_data
 
 end
+
 
 def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-
+  array = data.keys
+  p array
 end
+
 
 def q15
   data1 = { name: "saitou", hobby: "soccer", age: 33, role: "admin" }
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
+  array1 = data1.keys
+  array2 = data2.keys
+
+  if array1.include?(:age)
+    p "OK"
+  else
+    p "NG"
+  end
+
+  if array2.include?(:age)
+    p "OK"
+  else
+    p "NG"
+  end
 
 end
+
+#######################################
+####ここまで############################
+#######################################
 
 def q16
   users = [

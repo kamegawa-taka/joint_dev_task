@@ -101,20 +101,31 @@ def q9
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  names.each_with_index{|name, index|
-    puts "会員No.#{index+1} #{name}さん"
-  }
+
+  #names.each_with_index{|name, index|
+  #  puts "会員No.#{index+1} #{name}さん"
+  #}
+
+  #インデックスを1から始めるメソッド
+    names.each.with_index(1) {|name, index|
+      puts "会員No.#{index} #{name}さん"
+    }
 end
 
 def q10
   foods = %w(いか たこ うに しゃけ うにぎり うに軍艦 うに丼)
 
   # 以下に回答を記載
-    if foods.include?("うに")
-      p "好物です"
-    else
-      p "まあまあ好きです"
-    end
+
+  #  if foods.include?("うに")
+  #    p "好物です"
+  #  else
+  #    p "まあまあ好きです"
+  #  end
+
+ #三項演算子を使う↓
+   p foods.include?("うに") ? "好物です" : "まあまあ好きです"
+
 end
 
 
@@ -122,8 +133,12 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
-  sports_total = sports.flatten
-    sports_total.uniq!
+
+  #sports_total = sports.flatten
+  #  sports_total.uniq!
+
+#メソッドメソッド.を使って１行にまとめる↓
+  sports_total = sports.flatten.uniq!
     p "ユーザーの趣味一覧"
     n = 1
       sports_total.each do |sport|
@@ -147,11 +162,13 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
-    update_data.each{|key,value|
-      user_data.store(key, value)
-  }
+  #  update_data.each{|key,value|
+  #    user_data.store(key, value)
+  #}
+  #p user_data
 
-  p user_data
+#ハッシュの中身を更新するメソッドを使う↓
+  p user_data.update(update_data)
 
 end
 
@@ -173,23 +190,25 @@ def q15
   array1 = data1.keys
   array2 = data2.keys
 
-  if array1.include?(:age)
-    p "OK"
-  else
-    p "NG"
-  end
+  #if array1.include?(:age)
+  #  p "OK"
+  #else
+  #  p "NG"
+  #end
 
-  if array2.include?(:age)
-    p "OK"
-  else
-    p "NG"
-  end
+#三項演算子を使う↓
+  p array1.include?(:age) ? "OK" : "NG"
 
+  #if array2.include?(:age)
+  #  p "OK"
+  #else
+  #  p "NG"
+  #end
+
+#三項演算子を使う↓
+  p array2.include?(:age) ? "OK" : "NG"
 end
 
-#######################################
-####ここまで############################
-#######################################
 
 def q16
   users = [
@@ -201,7 +220,18 @@ def q16
 
   # 以下に回答を記載
 
+  n = 0
+    users.each do |i|
+      p "私の名前は#{users[n][:name]}です。　年齢は#{users[n][:age]}歳です。"
+      n += 1
+    end
+
 end
+
+#######################################
+####ここまで############################
+#######################################
+
 
 class UserQ17
   # 以下に回答を記載

@@ -78,9 +78,7 @@ def q7
   p array
 end
 
-#######################################
-####ここから############################
-#######################################
+
 
 def q8
   programming_languages = %w(ruby php python javascript)
@@ -231,24 +229,41 @@ def q16
 
 end
 
-
+#######################################
+####ここから############################
+#######################################
 
 class UserQ17
   # 以下に回答を記載
-  attr_accessor :name
-  attr_accessor :age
-  attr_accessor :gender
+#  attr_accessor :name
+#  attr_accessor :age
+#  attr_accessor :gender
 
+#def initialize(name:, age:, gender:)
+#    self.name = name
+#    self.age = age
+#    self.gender = gender
+#  end
+
+#  def info
+#     puts "名前:#{self.name}"
+#     puts "年齢:#{self.age}"
+#     puts "性別:#{self.gender}"
+#  end
+
+#attr_accessorは必要ないとのアドバイスから改善↓
   def initialize(name:, age:, gender:)
-    self.name = name
-    self.age = age
-    self.gender = gender
+    @name = name
+    @age = age
+    @gender = gender
   end
 
   def info
-     puts "名前:#{self.name}"
-     puts "年齢:#{self.age}"
-     puts "性別:#{self.gender}"
+    puts <<~TEXT
+    名前:#{@name}
+    年齢:#{@age}
+    性別:#{@gender}
+    TEXT
   end
 
 end
@@ -267,23 +282,39 @@ end
 
 class UserQ18
   # 以下に回答を記載
-  attr_accessor :name
-  attr_accessor :age
+#  attr_accessor :name
+#  attr_accessor :age
 
+#  def initialize(name:, age:)
+#    self.name = name
+#    self.age = age
+#  end
+
+#  def introduce
+#    if self.age >= 20
+#      return "こんにちは,#{self.name}と申します。宜しくお願い致します。"
+#    else
+#      return "はいさいまいど〜，#{self.name}です！！！"
+#    end
+#  end
+
+#attr_accessorは必要ないとのアドバイスから改善↓
   def initialize(name:, age:)
-    self.name = name
-    self.age = age
+    @name = name
+    @age = age
   end
 
   def introduce
-    if self.age >= 20
-      return "こんにちは,#{self.name}と申します。宜しくお願い致します。"
-    else
-      return "はいさいまいど〜，#{self.name}です！！！"
-    end
+     if @age >= 20
+       return "こんにちは,#{@name}と申します。宜しくお願い致します。"
+     else
+       return "はいさいまいど〜，#{@name}です！！！"
+     end
   end
 
 end
+
+
 
 def q18
   # ここは変更しないで下さい
@@ -297,15 +328,15 @@ end
 
 class Item
   # 以下を修正して下さい
-attr_accessor :name
+#attr_accessor :name
 
   def initialize(name)
     @name = name
   end
 
-#  def name
-#    @name
-#  end
+  def name
+    @name
+  end
 
 end
 
@@ -323,12 +354,20 @@ end
 
 class UserQ20
   # 以下に回答を記載
+#  attr_accessor :name
 
+#    def
+
+#    end
 end
 
 class Zoo
   # 以下に回答を記載
+#  attr_accessor :name
+#  attr_accessor :entry_fee
+#    def info_entry_fee
 
+#    end
 end
 
 

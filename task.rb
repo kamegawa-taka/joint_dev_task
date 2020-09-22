@@ -353,21 +353,48 @@ end
 
 
 class UserQ20
+  
   # 以下に回答を記載
-#  attr_accessor :name
+  
+  attr_accessor :name
+  attr_accessor :age
 
-#    def
-
-#    end
+  def initialize(name:, age:)
+    @name = name
+    @age = age
+  end
+  
 end
 
 class Zoo
+  
   # 以下に回答を記載
-#  attr_accessor :name
-#  attr_accessor :entry_fee
-#    def info_entry_fee
+  
+  attr_accessor :entry_fee
+  
+  def initialize(name:, entry_fee:)
+    @name = name
+    @entry_fee = entry_fee
+  end
 
-#    end
+  def info_entry_fee()
+    
+    if user.age >= 0 && user.age <= 5
+      p "#{user.name}さんの入場料は#{zoo.entry_fee.infant}円です。" 
+    
+    elsif user.age >= 6 && user.age <= 12
+      p "#{user.name}さんの入場料は#{zoo.entry_fee.children}円です。" 
+    
+    elsif user.age >= 13 && user.age <= 64
+      p "#{user.name}さんの入場料は#{zoo.entry_fee.adult}円です。" 
+    
+    elsif user.age >= 65 && user.age <= 120
+      p "#{user.name}さんの入場料は#{zoo.entry_fee.senior}円です。" 
+    
+    end
+
+  end
+
 end
 
 
@@ -381,6 +408,7 @@ def q20
     UserQ20.new(name: "あじー", age: 32),
     UserQ20.new(name: "ぎん", age: 108)
   ]
+
 
   users.each do |user|
     zoo.info_entry_fee(user)

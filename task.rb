@@ -370,29 +370,25 @@ class Zoo
   
   # 以下に回答を記載
   
-  attr_accessor :entry_fee
-  
   def initialize(name:, entry_fee:)
     @name = name
     @entry_fee = entry_fee
   end
 
-  def info_entry_fee()
-    
+  def info_entry_fee(user)
     if user.age >= 0 && user.age <= 5
-      p "#{user.name}さんの入場料は#{zoo.entry_fee.infant}円です。" 
+     p "#{user.name}さんの入場料金は#{@entry_fee[:infant]}円です。"
     
     elsif user.age >= 6 && user.age <= 12
-      p "#{user.name}さんの入場料は#{zoo.entry_fee.children}円です。" 
+     p "#{user.name}さんの入場料金は#{@entry_fee[:children]}円です。" 
     
     elsif user.age >= 13 && user.age <= 64
-      p "#{user.name}さんの入場料は#{zoo.entry_fee.adult}円です。" 
+     p "#{user.name}さんの入場料金は#{@entry_fee[:adult]}円です。" 
     
     elsif user.age >= 65 && user.age <= 120
-      p "#{user.name}さんの入場料は#{zoo.entry_fee.senior}円です。" 
+     p "#{user.name}さんの入場料金は#{@entry_fee[:senior]}円です。" 
     
     end
-
   end
 
 end
